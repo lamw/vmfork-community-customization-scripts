@@ -1,0 +1,1 @@
+Execute the prep-esxi60.sh prior to running the Instant Clone cmdlets. This script will prepare the Nested ESXi 6.0 VM for Instant Cloning
