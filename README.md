@@ -7,8 +7,8 @@ This repository contains a collection of community contributed OS customization 
 ## Requirements
 
 * vSphere 6.0 (vCenter Server + ESXi 6.0)
-* ![PowerCLI 6.0 Release 1](https://my.vmware.com/group/vmware/get-download?downloadGroup=PCLI600R1)
-* ![Instant Clone PowerCLI Extensions](https://labs.vmware.com/flings/powercli-extensions)
+* [PowerCLI 6.0 Release 1] (https://my.vmware.com/group/vmware/get-download?downloadGroup=PCLI600R1)
+* [Instant Clone PowerCLI Extensions] (https://labs.vmware.com/flings/powercli-extensions)
 
 ## How it works
 
