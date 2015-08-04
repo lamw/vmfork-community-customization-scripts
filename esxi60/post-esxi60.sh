@@ -16,6 +16,7 @@ RESOURCE_GRP='++group=host/vim/tmp'
 
 # retrieve networking info passed from script
 hostname=$(vmtoolsd ${RESOURCE_GRP} --cmd "info-get guestinfo.fork.hostname")
+mac=$(vmtoolsd ${RESOURCE_GRP} --cmd "info-get guestinfo.fork.ethernet0.address")
 ipaddress=$(vmtoolsd ${RESOURCE_GRP} --cmd "info-get guestinfo.fork.ipaddress")
 netmask=$(vmtoolsd ${RESOURCE_GRP} --cmd "info-get guestinfo.fork.netmask")
 gateway=$(vmtoolsd ${RESOURCE_GRP} --cmd "info-get guestinfo.fork.gateway")
@@ -25,7 +26,7 @@ vmkload_mod ${RESOURCE_GRP} vmxnet3
 
 # setups VMK0
 localcli ${RESOURCE_GRP} network vswitch standard portgroup add -p "Management Network" -v "vSwitch0"
-localcli ${RESOURCE_GRP} network ip interface add -i vmk0 -p "Management Network"
+localcli ${RESOURCE_GRP} network ip interface add -i vmk0 -p "Management Network" -M ${mac}
 localcli ${RESOURCE_GRP} network ip interface ipv4 set -i vmk0 -I ${ipaddress} -N ${netmask} -t static
 localcli ${RESOURCE_GRP} system hostname set -f ${hostname}
 localcli ${RESOURCE_GRP} network ip route ipv4 add -g ${gateway} -n default
