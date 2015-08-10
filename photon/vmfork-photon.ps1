@@ -4,7 +4,10 @@
 
 Import-Module VMware.VimAutomation.Extensions
 
-$session = Connect-VIServer -Server 192.168.1.60 -User administrator@vghetto.local -Password VMware1!
+$vcserver = "192.168.1.150"
+$vcusername = "administrator@vghetto.local"
+$vcpassword = "VMware1!"
+Connect-VIServer -Server $vcserver -User $vcusername -Password $vcpassword
 
 $parentvm = 'Photon'
 $parentvm_username = 'root'
@@ -37,4 +40,4 @@ $quiesceParentVM = Enable-InstantCloneVM -VM "$parentvm" -GuestUser "$parentvm_u
 }
 Write-Host
 
-Disconnect-VIServer -Server $session -Confirm:$false
+Disconnect-VIServer -Server $vcserver -Confirm:$false
